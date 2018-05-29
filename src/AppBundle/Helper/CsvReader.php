@@ -9,6 +9,7 @@ namespace AppBundle\Helper;
  */
 class CsvReader
 {
+
 	/**
 	 * @var string
 	 */
@@ -21,6 +22,32 @@ class CsvReader
 	public function __construct(string $pathFile)
 	{
 		$this->pathFile = $pathFile;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function getCsvData()
+	{
+		$handle = fopen($this->pathFile, "r");
+		$row = 1;
+		$csvData = [];
+		$keys = [];
+
+		if (false !== $handle) {
+			while (($line = fgetcsv($handle)) !== FALSE) {
+				if ($row === 1) {
+					$keys = $line;
+					$row++;
+					continue;
+				}
+
+				$csvData[] = array_combine($keys, $line);
+				$row++;
+			}
+			fclose($handle);
+		}
+		return $csvData;
 	}
 
 }

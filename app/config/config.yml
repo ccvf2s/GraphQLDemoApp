@@ -8,7 +8,7 @@ imports:
 
 parameters:
     locale: en
-    csv_path: '%kernel.project_dir%/../web/data/tco-data.csv'
+    csv_path: '%kernel.root_dir%/../web/data/tco-data.csv'
 
 framework:
     #esi:             ~

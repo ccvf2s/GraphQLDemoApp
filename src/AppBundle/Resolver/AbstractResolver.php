@@ -15,7 +15,7 @@ abstract class AbstractResolver
 	/**
 	 * @var \AppBundle\Helper\CsvReader
 	 */
-	private $csvReader;
+	protected $csvReader;
 
 	/**
 	 * AbstractResolver constructor.
