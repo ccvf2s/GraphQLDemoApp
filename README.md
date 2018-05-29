@@ -37,7 +37,12 @@ Response:
 Now let's specify query in request content:
 > $ curl -XPOST 'http://127.0.0.1:8500/graphql' -F 'query={ cars { make, model, year, tco } }'
 
-Response a json with a lot of cars.é
+Or by going to http://127.0.0.1:8500/graphql/explorer and in the left side try this query:
+```
+{ cars { make, model, year, tco } }
+```
+
+You should receive a lot of cars with the specifics fields.
 
 ## GraphiQL extension
 To run GraphiQL extension, just open `endpoint + /explorer` in your browser, for example `http://localhost:8000/graphql/explorer`.
