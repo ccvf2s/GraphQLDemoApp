@@ -3,7 +3,6 @@
 namespace AppBundle\GraphQL\Type;
 
 use Youshido\GraphQL\Type\Object\AbstractObjectType;
-use Youshido\GraphQL\Type\Scalar\IntType;
 use Youshido\GraphQL\Type\Scalar\StringType;
 
 /**
@@ -23,7 +22,7 @@ class CarType extends AbstractObjectType
 			'make'        => new StringType(),
 			'model'     => new StringType(),
 			'trim' => new StringType(),
-			'year' => new IntType(),
+			'year' => new StringType(),
 			'tco' => new StringType(),
 		]);
 	}
