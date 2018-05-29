@@ -1,17 +1,16 @@
 <?php
-/**
- * Date: 31.10.16
- *
- * @author Portey Vasil <portey@gmail.com>
- */
 
 namespace AppBundle\GraphQL\Query;
 
-
-use AppBundle\GraphQL\Query\Todo\TodosField;
+use AppBundle\GraphQL\Query\Car\CarsField;
 use Youshido\GraphQL\Config\Object\ObjectTypeConfig;
 use Youshido\GraphQL\Type\Object\AbstractObjectType;
 
+/**
+ * Class QueryType
+ * @package AppBundle\GraphQL\Query
+ * @author Dominick Makome <makomedominick@gmail.com>
+ */
 class QueryType extends AbstractObjectType
 {
 
@@ -22,8 +21,7 @@ class QueryType extends AbstractObjectType
      */
     public function build($config)
     {
-        $config->addFields([
-            new TodosField()
-        ]);
+        $config->addFields([new CarsField()]);
     }
+
 }

@@ -1,20 +1,16 @@
-parameters:
-
-
 services:
+    ## CSV reader helper
+    helper.csv_reader:
+        class: AppBundle\Helper\CsvReader
+        arguments: ['%csv_path%']
 
-    em:
-        class: Doctrine\ORM\EntityManager
-        factory: ['@doctrine', 'getManager']
-
+    ## Abstract resolver
     resolver.base:
         class: AppBundle\Resolver\AbstractResolver
+        arguments: ['@helper.csv_reader']
         abstract: true
-        calls:
-            - [ init, ['@em']]
 
-
-    resolver.todo:
-        class: AppBundle\Resolver\TodoResolver
+    ## Car api resolver
+    resolver.car_api:
+        class: AppBundle\Resolver\CarApiResolver
         parent: 'resolver.base'
-
