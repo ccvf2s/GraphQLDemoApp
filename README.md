@@ -1,10 +1,10 @@
-GraphQL Demo App
-============
+GraphQL Demo Car API
+====================
 
 
-This project was created to show how we use [GraphQLBundle](https://github.com/Youshido/GraphQLBundle) in our projects.
+This project was created to show how we use [GraphQLBundle](https://github.com/Youshido/GraphQLBundle) in a simple car api.
 
-To ilustrate this we created simple backend application witch provide API endpoint for  [React Example TODO app](http://todomvc.com/examples/react) (source code and how to run it you can see [here](https://github.com/tastejs/todomvc/tree/master/examples/react)).
+The project is based on the fork of [GraphQL Demo](https://github.com/Youshido/GraphQLDemoApp).
 
 
 ## How to run
@@ -18,16 +18,9 @@ To run backend you need clone this repo and:
 
   API endpoint: `http://localhost:8500/graphql`
 
-
-* If you have web stack installed, run:
-
-  > php bin/console server:start
-
-  API endpoint: `http://localhost:8000/graphql`
-
 ## Sending requests
 Now you can easily send request to endpoint, for example:
->$ curl -XPOST 'http://127.0.0.1:8000/graphql'
+>$ curl -XPOST 'http://127.0.0.1:8500/graphql'
 
 Response:
 ```graphql
@@ -42,25 +35,9 @@ Response:
 ```
 
 Now let's specify query in request content:
-> $ curl -XPOST 'http://127.0.0.1:8000/graphql' -F 'query={ todos { id } }'
+> $ curl -XPOST 'http://127.0.0.1:8500/graphql' -F 'query={ cars { make, model, year, tco } }'
 
-Response:
-``` graphql
-{
-    "data": {
-        "todos": [
-          {
-            "id": 129
-          }
-        ]
-    }
-}
-```
+Response a json with a lot of cars.é
 
 ## GraphiQL extension
 To run GraphiQL extension, just open `endpoint + /explorer` in your browser, for example `http://localhost:8000/graphql/explorer`.
-
-## Configuration for React example Todo app
-If you have installed [React Example TODO](http://todomvc.com/examples/react) application and want to use our endpoint, you need to change endpoint in `server.js` on line 10:
-
-![Example](https://s13.postimg.org/t98deyd87/server_js_todomvc_projects_test_react_tod.png)
