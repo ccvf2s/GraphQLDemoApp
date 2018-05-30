@@ -42,6 +42,14 @@ Or by going to http://127.0.0.1:8500/graphql/explorer and in the left side try t
 { cars { make, model, year, tco } }
 ```
 
+```
+{
+  filter (field: "make", value: "Acura") {
+    make, model
+  }
+}
+```
+
 You should receive a lot of cars with the specifics fields.
 
 ## GraphiQL extension
