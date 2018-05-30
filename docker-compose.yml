@@ -5,12 +5,8 @@ services:
     build:
       context: ./docker/php/
     working_dir: /var/www
-    depends_on:
-      - db
     volumes:
       - ./:/var/www
-    links:
-      - db:db_node
     stdin_open: true
     tty: true
 
@@ -24,11 +20,3 @@ services:
       - 8500:80
     links:
       - php
-
-  # database
-  db:
-    container_name: graphql_demo_mysql
-    image: mysql:latest
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: symfony
