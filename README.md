@@ -13,10 +13,16 @@ To run backend you need clone this repo and:
 * If you have docker installed, just type this in project root:
 
   > docker-compose up -d
+  > docker exec -it graphql_demo_php bash
+  > composer install
 
   This command will run containers and exposed port will be `8500`.
 
   API endpoint: `http://localhost:8500/graphql`
+
+## Run the tests
+  > docker exec -it graphql_demo_php bash
+  > ./vendor/bin/simple-phpunit
 
 ## Sending requests
 Now you can easily send request to endpoint, for example:
