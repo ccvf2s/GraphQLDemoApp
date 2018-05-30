@@ -28,11 +28,11 @@ class CarApiResolver extends AbstractResolver
 	 */
 	public function filter(string $field, string $value)
 	{
-		$data = $this->all();
 		if (!in_array($field, ['make', 'model', 'trim', 'year', 'tco'])) {
 			throw new \Exception("The field {$field} doesn't exist.");
 		}
 
+		$data = $this->all();
 		$colums = array_column($data, $field);
 		$result = array_filter($colums, function($v) use ($value) { return $v == $value;});
 		$keys = array_keys($result);
